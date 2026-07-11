@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Success — Vertex</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .thank-you-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 24px;
+    background: radial-gradient(circle at 50% 50%, rgba(201, 162, 75, 0.05) 0%, var(--bg-void) 70%);
+  }
+  .success-glass {
+    background: rgba(8, 12, 23, 0.65);
+    border: 1px solid rgba(201, 162, 75, 0.3);
+    padding: 64px 40px;
+    border-radius: 24px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    max-width: 600px;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.8);
+  }
+  .success-icon {
+    width: 80px; height: 80px;
+    background: rgba(201, 162, 75, 0.1);
+    color: var(--gold-bright);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 32px;
+  }
+  .success-icon svg { width: 40px; height: 40px; }
+</style>
+</head>
+<body>
+
+<div class="thank-you-wrapper">
+  <div class="success-glass reveal active">
+    <div class="success-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+      </svg>
+    </div>
+    <h1 style="font-family: var(--display); font-size: 36px; margin-bottom: 16px;">Payment Successful</h1>
+    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 40px; font-size: 16px;">
+      Welcome to the Vertex ecosystem. Your transaction has been securely processed. Our team has been notified and we are manually packaging your premium assets. You will receive your files via email shortly.
+    </p>
+    <button class="btn-primary" onclick="window.location.href='vault.html'">Return to The Vault</button>
+  </div>
+</div>
+
+</body>
+</html>

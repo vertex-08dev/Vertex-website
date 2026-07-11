@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vertex | Secure Transmission</title>
+    <link rel="stylesheet" href="css/style.css"> <!-- O seu CSS base -->
+    <link rel="stylesheet" href="css/vault-style.css"> <!-- O CSS do Vault -->
+    <style>
+        /* CSS Específico para a Página de Sucesso */
+        .success-wrapper {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #050505; /* Fundo super escuro */
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .status-ring {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.05);
+            border-top-color: var(--gold-bright, #f0d28a);
+            animation: spin 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+            margin-bottom: 30px;
+        }
+
+        .success-content {
+            z-index: 2;
+            max-width: 500px;
+        }
+
+        .success-title {
+            font-size: 28px;
+            color: #fff;
+            margin-bottom: 12px;
+            font-family: var(--display, 'Inter', sans-serif);
+            letter-spacing: -0.02em;
+        }
+
+        .success-desc {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 15px;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        /* O botão de download fica escondido até a verificação terminar */
+        #download-zone {
+            display: none;
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .btn-download {
+            background: linear-gradient(90deg, #c9a24b 0%, #f0d28a 50%, #c9a24b 100%);
+            background-size: 200% auto;
+            color: #000;
+            padding: 16px 32px;
+            border-radius: 99px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.5s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-download:hover {
+            background-position: right center;
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(240, 210, 138, 0.3);
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Fundo de Partículas Reutilizado (Opcional, para manter a imersão) -->
+    <canvas id="nodeCanvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; opacity: 0.3;"></canvas>
+
+    <div class="success-wrapper">
+        <div class="success-content">
+            <!-- O anel de carregamento que simula a encriptação -->
+            <div class="status-ring" id="status-spinner"></div>
+            
+            <h1 class="success-title" id="status-title">Authenticating Session...</h1>
+            <p class="success-desc" id="status-desc">Verifying your payment and generating a secure download link for your source code.</p>
+
+            <!-- A zona de download que será revelada pelo JavaScript -->
+            <div id="download-zone">
+                <a href="#" class="btn-download" id="secure-download-btn" download>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    Download Source Code
+                </a>
+                <p style="margin-top: 16px; font-size: 12px; color: rgba(255,255,255,0.3);">Link expires in 24 hours.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- O motor de fundo 3D para manter a coerência visual -->
+    <script src="js/canvas-hero.js"></script>
+
+    <!-- Lógica de Verificação da Transação -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Captura o ID da transação no URL (ex: ?session_id=cs_test_12345)
+            const urlParams = new URLSearchParams(window.location.search);
+            const sessionId = urlParams.get('session_id');
+
+            const spinner = document.getElementById('status-spinner');
+            const title = document.getElementById('status-title');
+            const desc = document.getElementById('status-desc');
+            const downloadZone = document.getElementById('download-zone');
+            const downloadBtn = document.getElementById('secure-download-btn');
+
+            // Se não houver session_id, alguém tentou aceder à página diretamente
+            if (!sessionId) {
+                spinner.style.display = 'none';
+                title.textContent = 'Acesso Negado';
+                title.style.color = '#ff4d4d';
+                desc.textContent = 'Sessão inválida ou expirada. Nenhuma transação detetada.';
+                return;
+            }
+
+            // 2. Simulador da comunicação com o Backend Serverless
+            // No futuro, faremos um fetch('/api/verify-payment?session=' + sessionId)
+            setTimeout(() => {
+                // Removemos o spinner
+                spinner.style.display = 'none';
+                
+                // Atualizamos os textos para sucesso
+                title.textContent = 'Transmission Secured.';
+                title.style.color = 'var(--gold-bright, #f0d28a)';
+                desc.textContent = 'Payment confirmed. Your premium asset has been unlocked and is ready for integration.';
+                
+                // Injetamos o link real do ficheiro .zip que está escondido no seu servidor
+                // (Exemplo: '/assets/downloads/vertex-template-v1.zip')
+                downloadBtn.href = '#'; 
+                
+                // Revelamos o botão de download
+                downloadZone.style.display = 'block';
+                
+                // Disparamos um evento de confeti dourado ou algo semelhante se quiser!
+            }, 2500); // 2.5 segundos de "suspense" para dar a sensação de verificação militar
+        });
+    </script>
+</body>
+</html>

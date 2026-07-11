@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Vault — Vertex Ecosystem</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="vault-style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand-mark"><a href="index.html" style="color: inherit; text-decoration: none;">Vertex</a></div>
+  <div class="topbar-right">
+    <a href="index.html" class="btn-back">← Back to Home</a>
+  </div>
+</header>
+
+<section class="vault-hero">
+  <div class="container reveal">
+    <span class="eyebrow">Global Ecosystem</span>
+    <h1>The Premium Vault</h1>
+    <p>Accelerate your development cycle with our curated library of cinematic templates and WebGL components. Priced in USD for global distribution.</p>
+  </div>
+</section>
+
+<section class="marketplace-section">
+  <div class="container">
+    
+    <div class="marketplace-controls reveal">
+      <div class="filter-tabs">
+        <button class="filter-btn active" data-filter="all">All Assets</button>
+        <button class="filter-btn" data-filter="website">Full Websites</button>
+        <button class="filter-btn" data-filter="component">UI Components</button>
+      </div>
+      <div class="search-box">
+        <input type="text" id="vault-search" placeholder="Search 500+ assets...">
+      </div>
+    </div>
+
+    <div class="market-grid reveal" id="market-products-grid"></div>
+
+  </div>
+</section>
+
+<div class="checkout-modal" id="vaultCheckoutModal">
+  <div class="modal-glass">
+    <button class="close-modal" onclick="closeVaultCheckout()">&times;</button>
+    
+    <h3 class="modal-title">Secure Checkout</h3>
+    <p id="modal-item-details" style="color: var(--text-primary); font-size: 16px; font-weight: 600; margin-bottom: 24px;"></p>
+    
+    <div class="upsell-box" id="upsellContainer">
+      <label class="switch">
+        <input type="checkbox" id="setupUpsellToggle" onchange="toggleUpsell()">
+        <span class="slider"></span>
+      </label>
+      <div class="upsell-info">
+        <h4>White-Glove Setup (+ $400)</h4>
+        <p>Don't want to touch code? Our engineers will replace all text, images, and deploy the live site on your domain within 48 hours.</p>
+      </div>
+    </div>
+    
+    <div class="payment-tabs">
+      <button class="pay-tab-btn active" onclick="switchPaymentMethod('moyassar')">💳 Global Cards / Apple Pay</button>
+      <button class="pay-tab-btn" onclick="switchPaymentMethod('paypal')">🔹 PayPal</button>
+      <button class="pay-tab-btn" onclick="switchPaymentMethod('binance')">🔶 Binance Pay</button>
+    </div>
+
+    <div class="payment-gateways-container">
+      
+      <div class="payment-gateway-content active" id="gate-moyassar">
+        <div class="gateway-placeholder">
+          <p class="gate-highlight">Moyassar Payment Gateway</p>
+          <span>Accepting Visa, Mastercard, American Express, Mada, and Apple Pay worldwide.</span>
+          <button class="btn-gate-action" onclick="processManualSale('Moyassar Global Cards')">Pay with Credit / Debit Card</button>
+        </div>
+      </div>
+
+      <div class="payment-gateway-content" id="gate-paypal">
+        <div class="gateway-placeholder">
+          <p class="gate-highlight" style="color: #0070ba;">PayPal Express</p>
+          <span>Pay safely using your global PayPal account or linked cards.</span>
+          <button class="btn-gate-action" style="background: #0070ba;" onclick="processManualSale('PayPal')">Proceed to PayPal</button>
+        </div>
+      </div>
+
+      <div class="payment-gateway-content" id="gate-binance">
+        <div class="gateway-placeholder">
+          <p class="gate-highlight" style="color: #f3ba2f;">Binance Pay (Crypto)</p>
+          <span>Instant global crypto settlement via USDT, BTC, or ETH.</span>
+          <button class="btn-gate-action" style="background: #f3ba2f; color: #000;" onclick="processManualSale('Binance Pay')">Generate Crypto Invoice</button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<footer class="vault-footer">
+  <p>&copy; 2026 Vertex. All rights reserved. Premium digital assets for world-class interfaces.</p>
+</footer>
+
+<div class="checkout-modal" id="vaultCheckoutModal">
+    <div class="checkout-panel">
+        <div class="checkout-header">
+            <h3>Secure Checkout</h3>
+            <button class="close-modal" onclick="closeVaultCheckout()">×</button>
+        </div>
+        
+        <div class="checkout-item-info">
+            <p id="modal-item-details">Carregando detalhes do ativo...</p>
+        </div>
+
+        <div class="payment-tabs">
+            <button class="pay-tab-btn active" onclick="switchPaymentMethod('card')">Credit Card</button>
+            <button class="pay-tab-btn" onclick="switchPaymentMethod('paypal')">PayPal</button>
+            <button class="pay-tab-btn" onclick="switchPaymentMethod('binance')">Binance</button>
+        </div>
+
+        <div class="payment-gateway-content active" id="gate-card">
+            <p class="gateway-desc">Secure encrypted payment via global card networks.</p>
+            <div class="mock-card-form">
+                <input type="text" placeholder="Card Number" class="mock-input" disabled>
+                <div class="mock-input-row">
+                    <input type="text" placeholder="MM/YY" class="mock-input" disabled>
+                    <input type="text" placeholder="CVC" class="mock-input" disabled>
+                </div>
+            </div>
+            <button class="btn-action-buy checkout-submit" onclick="processManualSale('Credit Card (Stripe)')">Pay with Card</button>
+        </div>
+
+        <div class="payment-gateway-content" id="gate-paypal">
+            <p class="gateway-desc">Fast and secure checkout with your PayPal account.</p>
+            <button class="btn-action-buy checkout-submit" onclick="processManualSale('PayPal')">Proceed to PayPal</button>
+        </div>
+
+        <div class="payment-gateway-content" id="gate-binance">
+            <p class="gateway-desc">Pay instantly using USDT, BTC, or ETH via Binance Pay.</p>
+            <button class="btn-action-buy checkout-submit" onclick="processManualSale('Binance Pay')">Pay with Crypto</button>
+        </div>
+    </div>
+</div>
+
+<script src="js/ui-core.js"></script>
+<script src="js/engine-3d.js"></script>
+<script src="js/vault-market.js"></script>
+</body>
+</html>
