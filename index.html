@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <title>Vertex | Immersive Digital Assets & UI Templates</title>
+<meta name="description" content="Premium HTML templates and interactive 3D UI components. Built for elite developers and cyber-studios. 100% independent.">
+<meta name="keywords" content="HTML templates, 3D UI, WebGL, Glassmorphism, Premium Web Design">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.seu-dominio-vertex.com/">
+<meta property="og:title" content="Vertex — Premium Immersive Assets">
+<meta property="og:description" content="Own your source code with ultra-luxury 3D templates.">
+<meta property="og:image" content="https://www.seu-dominio-vertex.com/assets/img/og-preview.jpg">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Vertex — Premium Immersive Assets">
+<meta name="twitter:description" content="Own your source code.">
+<meta name="twitter:image" content="https://www.seu-dominio-vertex.com/assets/img/og-preview.jpg">
+
+  
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vertex — The single point of maximum leverage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="auth-overlay" id="authOverlay"></div>
+<div class="auth-panel" id="authPanel" aria-hidden="true">
+  <div class="auth-glass-content">
+    <button class="close-auth" id="closeAuth">&times;</button>
+    <div class="auth-header">
+      <span class="auth-eyebrow">Vertex Core</span>
+      <h2>Access the Nexus</h2>
+      <p>Sign in to manage your purchased licenses, download your .zip frameworks, and view premium web hooks.</p>
+    </div>
+    
+    <form class="auth-form" onsubmit="event.preventDefault(); alert('Authentication gateway initialized.');">
+      <div class="auth-input-group">
+        <label>Operational Email</label>
+        <input type="email" class="input-field" placeholder="name@company.com" required>
+      </div>
+      <div class="auth-input-group" style="margin-top: 16px;">
+        <label>Passcode</label>
+        <input type="password" class="input-field" placeholder="••••••••" required>
+      </div>
+      <button type="submit" class="btn-primary-pulse" style="width: 100%; margin-top: 24px; text-align: center;">Access</button>
+    </form>
+    
+    <div class="auth-footer-links">
+      <p>New to the ecosystem? <a href="#contact" onclick="document.getElementById('closeAuth').click();">Request Studio Access</a></p>
+    </div>
+  </div>
+</div>
+
+<header class="topbar">
+  <div class="brand-mark">Vertex</div>
+  <div class="topbar-right">
+    <button class="user-icon" aria-label="User Profile">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+        <circle cx="12" cy="7" r="4"></circle>
+      </svg>
+    </button>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="menu-overlay" id="menuOverlay"></div>
+<nav class="menu-panel" id="menuPanel" aria-hidden="true">
+  <div class="menu-nav">
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#components">The Vault</a>
+    <a href="#about">About</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-canvas-wrapper">
+    <canvas id="nodeCanvas"></canvas>
+  </div>
+  <div class="hero-inner reveal">
+    <div class="hero-copy">
+      <span class="eyebrow">Vertex</span>
+      <h1>Every point of your interface, on purpose.</h1>
+      <p>We find the vertex of your business and pivot your operation toward it.</p>
+      <div class="hero-actions">
+      <button class="btn-primary" onclick="window.location.href='vault.html'">Find your vertex</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="page-section fade-bottom" id="why-vertex" style="display: flex; justify-content: center; align-items: center; min-height: 80vh;">
+  <div class="hero-3d-container">
+      <div class="float-wrapper reveal">
+          <div class="card-3d" id="interactive-card">
+              <div class="card-glow-gold"></div>
+              
+              <div class="card-glass">
+                  <div class="glass-content">
+                      <h3 class="glass-title">Why Vertex?</h3>
+                      
+                      <div class="glass-accordion">
+                          <div class="glass-item active">
+                              <button class="glass-btn">💎 Premium Visuals</button>
+                              <div class="glass-panel">
+                                  <p>Elite aesthetics that convey absolute trust and elevate the perceived value for your end customer.</p>
+                              </div>
+                          </div>
+                          
+                          <div class="glass-item">
+                              <button class="glass-btn">🎨 Immersive Design</button>
+                              <div class="glass-panel">
+                                  <p>3D elements and fluid interactions that capture attention and skyrocket conversion rates.</p>
+                              </div>
+                          </div>
+                          
+                          <div class="glass-item">
+                              <button class="glass-btn">🚀 Extreme Performance</button>
+                              <div class="glass-panel">
+                                  <p>Ultra-light code that loads instantly on any mobile device.</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<section class="page-section fade-top fade-bottom" id="services">
+  <div class="container">
+    <h2 class="section-title reveal">Our <span>Services</span></h2>
+    <div class="services-grid">
+      <div class="service-card reveal delay-1" data-tilt-card>
+        <h3>Web design</h3>
+        <p>High-converting landing pages and marketing sites with premium visual identity</p>
+      </div>
+      <div class="service-card reveal delay-2" data-tilt-card>
+        <h3>IU components</h3>
+        <p>Interactive heroes and IU components that engage and retain user attention from the very first second.</p>
+      </div>
+      <div class="service-card reveal delay-3" data-tilt-card>
+        <h3>Web development</h3>
+        <p>Code refactoring completely focused on flawless framerates, optimized rendering, and smooth 60fps animations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="page-section fade-bottom" id="components">
+  <div class="container">
+    <h2 class="section-title reveal">The <span>Vault</span></h2>
+    <div class="services-grid">
+      
+      <div class="service-card reveal delay-1" data-tilt-card>
+        <div class="card-preview-container">
+          <span class="asset-badge">UI Component</span>
+          <div class="video-overlay-scrim"></div>
+        </div>
+        <div class="card-meta-inner">
+          <h3>Animated Beam Button</h3>
+          <p>The exact button used in our Hero section. Smooth gradient rotation and interactive hover state.</p>
+          <div class="card-footer-action">
+            <div>
+              <span class="card-price-value">$19</span>
+              <span style="display: block; font-size: 11px; color: var(--text-muted); font-family: var(--display); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 4px;">HTML / CSS / JS Source</span>
+            </div>
+            <button class="btn-vault-pulse" onclick="window.location.href='vault.html'">View in Vault</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-card reveal delay-2" data-tilt-card>
+        <div class="card-preview-container">
+          <span class="asset-badge">UI Component</span>
+          <div class="video-overlay-scrim"></div>
+        </div>
+        <div class="card-meta-inner">
+          <h3>Glassmorphism Nav</h3>
+          <p>Ultra-smooth sliding sidebar menu with blurred background and precision micro-animations.</p>
+          <div class="card-footer-action">
+            <div>
+              <span class="card-price-value">$29</span>
+              <span style="display: block; font-size: 11px; color: var(--text-muted); font-family: var(--display); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 4px;">HTML / CSS / JS Source</span>
+            </div>
+            <button class="btn-vault-pulse" onclick="window.location.href='vault.html'">View in Vault</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-card reveal delay-3" data-tilt-card>
+        <div class="card-preview-container">
+          <span class="asset-badge">WebGL Engine</span>
+          <div class="video-overlay-scrim"></div>
+        </div>
+        <div class="card-meta-inner">
+          <h3>Cinematic WebGL Hero</h3>
+          <p>The interactive physics node canvas. Perfectly optimized to run at a flawless 60fps.</p>
+          <div class="card-footer-action">
+            <div>
+              <span class="card-price-value">$89</span>
+              <span style="display: block; font-size: 11px; color: var(--text-muted); font-family: var(--display); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 4px;">HTML / CSS / JS Source</span>
+            </div>
+            <button class="btn-vault-pulse" onclick="window.location.href='vault.html'">View in Vault</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="page-section fade-top fade-bottom" id="about">
+  <div class="container reveal">
+    <h2 class="section-title">The <span>Vertex</span></h2>
+    <p style="color: var(--text-muted); max-width: 700px; line-height: 1.8; font-size: 18px;" class="reveal delay-1">
+      We believe in the exact point where your strategy shifts direction. We don't waste time on anything that doesn't generate direct impact on your conversion rates and brand aesthetic. We build direct, elegant, and technologically superior solutions to elevate your business standard.
+    </p>
+  </div>
+</section>
+
+<section class="page-section fade-bottom" id="faq">
+  <div class="container">
+    <h2 class="section-title reveal" style="text-align: center;">Clear <span>Terms</span></h2>
+    <div class="faq-list reveal delay-1">
+      <details class="faq-item">
+        <summary>Do you charge monthly maintenance fees?</summary>
+        <p>No. We build independent, high-performance assets. Once delivered, the codebase is 100% yours. We don't believe in holding your operation hostage with recurring tech fees.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What happens if a bug appears after launch?</summary>
+        <p>Every full project includes a strict 15-day Stabilization Period. If any visual discrepancy or performance drop occurs within this window, we correct it immediately at zero cost.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I request new features later?</summary>
+        <p>Absolutely. We treat future updates—like adding a new page or a new 3D element—as independent micro-projects. You only pay for exactly what you need, exactly when you need it.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How do the standalone components work?</summary>
+        <p>When you purchase from 'The Vault', you receive the raw HTML, CSS, and JS files, perfectly formatted and ready to be integrated into your existing project or CMS.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="page-section fade-top fade-bottom" id="contact">
+  <div class="container">
+    <div class="contact-wrapper">
+      <div class="reveal">
+        <h2 class="section-title" style="margin-bottom: 24px;">Ready to <span>Pivot?</span></h2>
+        <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 32px;">
+          Fill out the form and let's design the next major evolution of your interface.
+        </p>
+      </div>
+      <form class="contact-form reveal delay-1" onsubmit="event.preventDefault();">
+        <input type="text" class="input-field" placeholder="Your Name" required>
+        <input type="email" class="input-field" placeholder="Your Email" required>
+        <textarea class="input-field" placeholder="Tell us about your project..." required></textarea>
+        <button type="submit" class="btn-simple" style="align-self: flex-start; margin-top: 10px;">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-brand">VERTEX</div>
+  <div class="footer-tagline">
+    The single point of maximum leverage.<br>The exact point where your strategy shifts direction.
+  </div>
+  <div class="footer-socials">
+    <a href="#" aria-label="Email">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+    </a>
+    <a href="#" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+    </a>
+    <a href="#" aria-label="Facebook">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+    </a>
+  </div>
+</footer>
+
+<script src="js/ui-core.js"></script>
+<script src="js/engine-3d.js"></script>
+<script src="js/canvas-hero.js"></script>
+</body>
+</html>
